@@ -24,6 +24,12 @@ public class Player {
     private float maxPlayerManaPoints;
     private float maxPlayerDefensePoints;
     private float maxPlayerHitPoints;
+    
+    //function to display unknown input error 
+    public void ShowErrorMessage(String message)
+    {
+        System.out.println(message);
+    }
 
     /**
      * @return the playerName
@@ -70,8 +76,43 @@ public class Player {
     /**
      * @param playerClass the playerClass to set
      */
+    /*
+    TODO setPlayerClass
+    1. Prompt user for what class they would like the player character to be.
+    there is no limit on the amount of classes the function can take, adjust options
+    accordingly. (Default number of classes is 3)
+    2. Depending on user input, have it select the correct class, and close scanner
+    
+    */
     public void setPlayerClass(String playerClass) {
-        this.playerClass = playerClass;
+        while(this.playerClass==""|| playerClass=="")
+        {
+            System.out.println("What class would you like the player to be 1) TBD\n 2) TBD2\n 3) TBD3\n");
+            Scanner classScan=new Scanner(System.in);
+            playerClass=classScan.nextLine(); // if it shows up as null, or empty add the this keyword back in
+            switch(playerClass.toLowerCase())
+            {
+                case"1":
+                case "tbd":
+                    break;
+                case"2":
+                case"tbd2":
+                    break;
+                case"3":
+                case"tbd3":
+                default:
+                    String message= "Please select from the above listed options";
+                    classScan.close();
+                    ShowErrorMessage(message);
+                    playerClass="";
+                    this.playerClass="";
+            }
+             this.playerClass=playerClass;
+            
+        
+        }
+       
+        // || (or) && (and) 
     }
 
     /**
